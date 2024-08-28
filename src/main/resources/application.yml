@@ -1,0 +1,33 @@
+server.port: 8888
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    bus:
+      enabled: true
+    config:
+      server:
+        git:
+          uri: https://github.com/some-dummy/config-repo.git
+          repos:
+            team-a:
+              pattern: team-a*
+              search-paths:
+                - '{application}'
+              uri: https://github.com/rajagopalmani/team-a.git
+              force-pull: true
+              clone-on-start: true
+              basedir: /opt/repos
+            team-b:
+              pattern: team-b*
+              search-paths:
+                - '{application}'
+              uri: https://github.com/rajagopalmani/team-b.git
+              force-pull: true
+              clone-on-start: true
+              basedir: /opt/repos
+
+
+
+
+
